@@ -1,0 +1,42 @@
+<!-- index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transforming Businesses with AI</h1>
+            <p>Unlock the power of Artificial Intelligence to drive growth and innovation.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container text-center">
+            <h2>Our AI Services</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="/static/images/service1.jpg" alt="AI Consulting" class="img-fluid" style="height: 200px; object-fit: cover;">
+                        <h4>AI Consulting</h4>
+                        <p>Leverage AI to optimize your business processes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="/static/images/service2.jpg" alt="Machine Learning" class="img-fluid" style="height: 200px; object-fit: cover;">
+                        <h4>Machine Learning</h4>
+                        <p>Develop intelligent systems that learn from data.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="/static/images/service3.jpg" alt="Automation" class="img-fluid" style="height: 200px; object-fit: cover;">
+                        <h4>Automation</h4>
+                        <p>Enhance efficiency with AI-driven automation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <style>
+        body {
+            background-color: #f0f8ff;
+            color: #004080;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #0056b3;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        /* .hero {
+            background: url('/static/images/hero-banner.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+        .hero .btn {
+            background-color: #ffcc00;
+            color: #004080;
+        } */
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .testimonials {
+            background-color: #cce6ff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .testimonials p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .contact {
+            background-color: #004080;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+/* video*/
+.video-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #0056b3, #003366);
+    color: white;
+}
+
+.video-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.video {
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.video:hover {
+    transform: scale(1.05);
+}
+
+
+        .footer {
+            background: linear-gradient(to right, #003366, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+        .footer-section h4 {
+            color: #ffcc00;
+            margin-bottom: 15px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 8px 0;
+        }
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #ffcc00;
+        }
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+        .footer-bottom {
+            border-top: 1px solid #ffffff33;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        .tech-card, .method-card, .usecase-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tech-card i, .method-card i, .usecase-card i {
+            font-size: 50px;
+            color: #004080;
+            margin-bottom: 15px;
+        }
+        .tech-section, .methodology-section, .usecase-section {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+        .tech-section h2, .methodology-section h2, .usecase-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .methodology-section {
+            background-color: #e6f7ff;
+        }
+        .usecase-section {
+            background-color: #e6f7ff;
+        }
+        .methodology-section .row, .usecase-section .row {
+            display: flex;
+            justify-content: center;
+        }
+        .methodology-section .col-md-4, .usecase-section .col-md-4 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .filter-buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filter-buttons button:hover {
+            background-color: #ffcc00;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero {
+                padding: 80px 20px;
+            }
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-section {
+                text-align: center;
+            }
+        }
+    </style>
+<!-- Updated Header with Dropdown -->
+<header class="navbar">
+    <header class="navbar">
+        <a class="navbar-brand" href="/">
+            <img src="logo.png" alt="Your Logo" style="height:0px; width:auto;">
+        </a>
+        <nav class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About Us</a>
+            <a href="{{ url_for('services') }}">Services</a>
+            <a href="{{ url_for('ai_services') }}">AI Services</a>
+            <a href="{{ url_for('ai_agents') }}">AI Agents</a>
+            <a href="{{ url_for('pricing') }}">Pricing</a>
+            <a href="{{ url_for('faq') }}">FAQ</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <!-- <div class="nav-right">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="/get-started" class="btn get-started">Get Started</a>
+        </div> -->
+    </header>
+    </div>
+    <div class="nav-right">
+        <button class="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <a href="/get-started" class="btn get-started">Get Started</a>
+    </div>
+</header>
+
+<!-- CSS for Updated Header -->
+<style>
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #02263F;
+    padding: 10px 20px;
+    color: white;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: auto; /* Adjust size as needed */
+    height: 50px;
+    background: transparent;
+    color: blue;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #02263F;
+    color: rgb(148, 13, 13);
+    padding: 10px;
+    list-style: none;
+    box-shadow: 0 4px 6px rgba(74, 62, 62, 0.1);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.get-started {
+    background: #2CB742;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
+
+
+    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
+<section class="hero">
+    <video autoplay loop muted playsinline class="hero-video">
+        <source src="/static/videos/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+        <!-- <h1>Transform Your Business with Cutting-Edge Solutions</h1> -->
+        <div class="hero-buttons">
+            <a href="{{ url_for('demo') }}" class="btn demo-btn">Demo</a>
+            <a href="{{ url_for('contact') }}" class="btn contact-btn">Contact</a>
+        </div>
+    </div>
+</section>
+
+<!-- CSS for Video Background -->
+<style>
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+}
+</style>
+
+    <!-- Buttons style -->
+    <!-- i want to make it more perfessional and attractive want to add transitions and glowing efects -->
+     <!-- And also want to change the possition of the buttons -->
+      <!-- also maintain space betweeb the buttons also maintain boxes size-->
+     <style>
+     .hero-buttons {
+        position: fixed;  
+    top: 60%;
+    left: 92%;
+    margin: 10px;
+    transform: translate(-30%, -30%);
+    text-align: center;
+    z-index: 1000; /* Ensures buttons stay above other elements */
+}
+
+    /* Add some spacing between the buttons */
+        .hero-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            width: 100px; /* Set a fixed width */
+            height: 50px; /* Set a fixed height */
+            border-radius: 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid #fff;
+            transition: background-color 0.3s ease;
+        }
+        .hero-buttons a.demo-btn {
+            background-color: #ffcc00;
+            margin-right: 10px;
+        }
+        .hero-buttons a.contact-btn {
+            background-color: #ffcc00;
+            /* margin-left: 10px; */
+        }
+        .hero-buttons a:hover {
+            background-color: #003366;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+
+            
+        }
+     </style>
+
+
+    <!-- Technology We Use Section -->
+    <section class="tech-section">
+        <div class="container">
+            <h2>Technology We Use</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="tech-card">
+                        <i class="fab fa-python"></i>
+                        <h4>Python</h4>
+                        <p>Python is the core language for developing machine learning and AI solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tech-card">
+                        <i class="fab fa-js"></i>
+                        <h4>TensorFlow</h4>
+                        <p>We use TensorFlow for developing deep learning models to solve complex problems.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tech-card">
+                        <i class="fab fa-aws"></i>
+                        <h4>AWS</h4>
+                        <p>AWS provides scalable cloud infrastructure for our AI solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Local Video Example -->
+    <!-- <div class="video-section">
+        <h2 class="video-title">Experience Our AI in Action</h2>
+        <div class="video-container">
+            <video class="video" controls>
+                <source src="static/videos/demo3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+     -->
+
+    <!-- AI Services Methodology Section -->
+    <section class="methodology-section">
+        <div class="container">
+            <h2>How We Deliver</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="method-card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Understand & Define</h4>
+                        <p>We begin by understanding your business and defining the AI goals that align with your objectives.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="method-card">
+                        <i class="fas fa-database"></i>
+                        <h4>Data Collection & Preparation</h4>
+                        <p>Data is collected, cleaned, and preprocessed to ensure high-quality input for training AI models.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="method-card">
+                        <i class="fas fa-brain"></i>
+                        <h4>Model Development</h4>
+                        <p>We develop AI models tailored to your needs using the latest machine learning algorithms and tools.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="method-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Deployment & Integration</h4>
+                        <p>The AI solution is deployed and integrated seamlessly into your existing infrastructure for maximum efficiency.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="method-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Continuous Improvement</h4>
+                        <p>We monitor and improve continuously to ensure optimal performance and accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- DELIVERABLES Section -->
+<section class="deliverables-section" style="background-color: #f1f8ff; padding: 80px 20px;">
+    <div class="container">
+        <h2 class="section-heading">DELIVERABLES</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-clipboard-list icon" aria-hidden="true"></i>
+                    <h4>Automation Evaluation </h4>
+                    <p>Thorough evaluation of automation opportunities within your organization.</p>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-chalkboard-teacher icon" aria-hidden="true"></i>
+                    <h4>Process Discovery Workshop</h4>
+                    <p>Collaborative workshop to discover key processes for automation.</p>
+                </div>
+            </div> -->
+            <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-map-signs icon" aria-hidden="true"></i>
+                    <h4>Automation Roadmap</h4>
+                    <p>Comprehensive roadmap with a clear timeframe for automation implementation.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-server icon" aria-hidden="true"></i>
+                    <h4>Readiness Assessment</h4>
+                    <p>Evaluate your current technical environment for automation readiness.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-cogs icon" aria-hidden="true"></i>
+                    <h4>Requirements for AI-powered Solutions</h4>
+                    <p>Define functional requirements for AI-powered solution development.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-database icon" aria-hidden="true"></i>
+                    <h4>Data Sources Assessment</h4>
+                    <p>Assessment of relevant data sources for AI model training and deployment.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="deliverable-card">
+                    <i class="fas fa-file-alt icon" aria-hidden="true"></i>
+                    <h4>Detailed Report</h4>
+                    <p>Provide a detailed report summarizing the findings, recommendations, and action plan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .section-heading {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #004080;
+        text-align: center;
+        margin-bottom: 60px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    .deliverable-card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        margin-bottom: 40px;
+        height: 400px; /* Set fixed height for uniformity */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .deliverable-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .deliverable-card .icon {
+        font-size: 60px;
+        color: #004080;
+        margin-bottom: 20px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .deliverable-card:hover .icon {
+        color: #ff6600;
+    }
+
+    .deliverable-card h4 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #004080;
+        margin-top: 20px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .deliverable-card:hover h4 {
+        color: #ff6600;
+    }
+
+    .deliverable-card p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.5;
+        margin-top: 15px;
+        font-weight: 400;
+    }
+
+    /* Fade-in animation for cards */
+    .deliverable-card {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    .deliverable-card:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+    .deliverable-card:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+    .deliverable-card:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+    .deliverable-card:nth-child(4) {
+        animation-delay: 0.8s;
+    }
+    .deliverable-card:nth-child(5) {
+        animation-delay: 1s;
+    }
+    .deliverable-card:nth-child(6) {
+        animation-delay: 1.2s;
+    }
+    .deliverable-card:nth-child(7) {
+        animation-delay: 1.4s;
+    }
+
+    /* Responsive Design: Adjust card layout on smaller screens */
+    @media (max-width: 768px) {
+        .deliverable-card {
+            height: auto; /* Allow height to adjust on smaller screens */
+        }
+    }
+</style>
+
+<!-- Key Service Offerings Section with Carousel -->
+<section class="key-services">
+    <div class="container">
+        <h2 class="text-center mb-5">KEY SERVICE OFFERINGS</h2>
+        
+        <!-- Carousel -->
+        <div id="serviceCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators (Optional) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            </div>
+            
+            <!-- Carousel Inner (Slides) -->
+            <div class="carousel-inner">
+                <!-- Service 1 -->
+                <div class="carousel-item active">
+                    <div class="service-card">
+                        <i class="fas fa-robot fa-3x mb-3"></i>
+                        <h4>AI Solutions</h4>
+                        <p>We provide AI-powered solutions tailored to your business needs, from machine learning to deep learning models.</p>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="carousel-item">
+                    <div class="service-card">
+                        <i class="fas fa-database fa-3x mb-3"></i>
+                        <h4>Data Analytics</h4>
+                        <p>Our data analytics services help businesses derive actionable insights from their data to drive decision-making.</p>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <!-- <div class="carousel-item">
+                    <div class="service-card">
+                        <i class="fas fa-cloud fa-3x mb-3"></i>
+                        <h4>Cloud Solutions</h4>
+                        <p>We offer scalable cloud infrastructure and management services to support your business growth.</p>
+                    </div>
+                </div> -->
+                <!-- Service 4 -->
+                <div class="carousel-item">
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code fa-3x mb-3"></i>
+                        <h4>Software Development</h4>
+                        <p>Our expert developers build high-quality software solutions, tailored to your specific business requirements.</p>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <!-- <div class="carousel-item">
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                        <h4>Cybersecurity</h4>
+                        <p>We ensure your business is secure by implementing state-of-the-art cybersecurity measures to protect against threats.</p>
+                    </div>
+                </div> -->
+                <!-- Service 6 -->
+                <div class="carousel-item">
+                    <div class="service-card">
+                        <i class="fas fa-chart-line fa-3x mb-3"></i>
+                        <h4>Business Strategy</h4>
+                        <p>We help businesses define growth strategies, optimize operations, and improve overall performance.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Controls (Arrows) -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#serviceCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Add some custom CSS styles -->
+<style>
+    .key-services {
+        background-color: #f0f8ff;
+        padding: 60px 20px;
+    }
+    .key-services h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #004080;
+    }
+    .service-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+    .service-card i {
+        color: #004080;
+    }
+    .service-card h4 {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+    .service-card p {
+        font-size: 1rem;
+        color: #555;
+    }
+    .carousel-indicators button {
+        background-color: #004080;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: #004080;
+    }
+    @media (max-width: 768px) {
+        .service-card {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+
+<!-- Make sure to include Bootstrap's JS and CSS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+    <!-- Use-Cases Section -->
+    <section class="usecase-section">
+        <div class="container">
+            <h2>AI Use Cases</h2>
+            <div class="filter-buttons">
+                <button id="process-use-case" onclick="filterUseCases('process')">Process Use Cases</button>
+                <!-- <button id="industry-use-case" onclick="filterUseCases('industry')">Industry Use Cases</button> -->
+            </div>
+            <div class="row" id="usecase-cards">
+                <div class="col-md-4 process">
+                    <div class="usecase-card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Process Automation</h4>
+                        <p>Automate repetitive tasks to save time and reduce errors.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 process">
+                    <div class="usecase-card">
+                        <i class="fas fa-tasks"></i>
+                        <h4>Task Optimization</h4>
+                        <p>Optimize workflows to improve productivity and efficiency.</p>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 industry">
+                    <div class="usecase-card">
+                        <i class="fas fa-building"></i>
+                        <h4>Retail AI</h4>
+                        <p>Enhance customer experience and manage inventory with AI.</p>
+                    </div> -->
+                <!-- </div>
+                <div class="col-md-4 industry">
+                    <div class="usecase-card">
+                        <i class="fas fa-hospital"></i>
+                        <h4>Healthcare AI</h4>
+                        <p>AI-driven solutions for diagnosis, patient management, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 industry">
+                    <div class="usecase-card">
+                        <i class="fas fa-car"></i>
+                        <h4>Automotive AI</h4>
+                        <p>Improving vehicle safety and customer experience with AI-driven solutions.</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+
+<!-- FAQ Section -->
+<!-- FAQ Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            height: 100%;
+        }
+
+        .faq-container {
+            width: 100%;
+            /* height: 100vh; */
+            /* max-width: 100%; */
+            /* margin: 0; */
+            padding: 30px;
+            background: white;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: rgb(15, 10, 61);
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            color: rgb(11, 29, 85);
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            font-size: 16px;
+            color: black;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .faq-item.active {
+            border: 2px solid #007bff;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 15px;
+        }
+
+        .icon {
+            font-size: 22px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .faq-item.active .icon {
+            transform: rotate(180deg);
+        }
+
+        .expand-all {
+            text-align: right;
+            margin-bottom: 10px;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="expand-all" onclick="toggleAll()">Expand All</div>
+<!-- Q 1 -->
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is generative AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Generative AI is a type of artificial intelligence that uses large datasets to generate new content such as text, images, music, and videos. Unlike traditional AI that can only recognize patterns, generative AI can create new, original data based on input prompts.
+            </div>
+        </div>
+<!-- Q 2 -->
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What's the difference between AI and generative AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI (Artificial Intelligence) is a broad field focused on creating machines that can perform tasks that usually require human intelligence, such as problem-solving or learning from experience. Generative AI, on the other hand, specifically focuses on creating new content (text, images, etc.) using algorithms and models.
+            </div>
+        </div>
+<!-- Q 3 -->
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is agentic AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Agentic AI refers to AI systems that act autonomously, making decisions and executing tasks without constant human intervention.
+            </div>
+        </div>
+<!-- Q 4 -->
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What's the future of generative AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                The future of generative AI includes advancements in human-like content generation, improved ethical AI, and integration across industries like healthcare, entertainment, and education.
+            </div>
+        </div>
+<!-- Q 5 -->
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is machine learning?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Machine learning is a subset of AI that enables computers to learn from data and make predictions or decisions without being explicitly programmed.
+            </div>
+        </div>
+
+        <!-- <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is machine learning?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Machine learning is a subset of AI that focuses on algorithms and statistical models that allow computers to improve their performance on a specific task over time through data-driven insights. It enables systems to learn from past data and make predictions without explicit programming.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is an LLM?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                An LLM (Large Language Model) is a type of deep learning model that processes and generates human language text. LLMs like GPT-3 are trained on vast amounts of text data and are capable of performing a wide range of natural language processing tasks such as text generation, translation, and summarization.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is an AI chatbot?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                An AI chatbot is a program that uses artificial intelligence to simulate conversation with users. It can answer questions, provide customer support, and perform tasks using natural language processing to understand user input and generate responses.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What are AI agents?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI agents are intelligent programs that can perform specific tasks, automate processes, and interact with users. They can analyze data, make decisions, and adapt over time to improve their performance.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What's the difference between a Now Assist-powered AI chatbot and ServiceNow AI Agents?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                A Now Assist-powered AI chatbot is designed to handle simple, rule-based tasks such as answering FAQs or providing support in a conversational format. ServiceNow AI Agents, on the other hand, are more advanced and can perform complex workflows, automate business processes, and integrate with enterprise systems for real-time decision-making and operational efficiency.
+            </div> -->
+        </div>
+
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let parent = element.parentElement;
+            parent.classList.toggle("active");
+
+            let icon = element.querySelector(".icon");
+            icon.textContent = parent.classList.contains("active") ? "−" : "+";
+        }
+
+        function toggleAll() {
+            let allItems = document.querySelectorAll(".faq-item");
+            let expandAllBtn = document.querySelector(".expand-all");
+
+            let isExpanded = [...allItems].some(item => !item.classList.contains("active"));
+
+            allItems.forEach(item => {
+                if (isExpanded) {
+                    item.classList.add("active");
+                    item.querySelector(".icon").textContent = "−";
+                } else {
+                    item.classList.remove("active");
+                    item.querySelector(".icon").textContent = "+";
+                }
+            });
+
+            expandAllBtn.textContent = isExpanded ? "Collapse All" : "Expand All";
+        }
+    </script>
+
+</body>
+</html>
+
+<style>
+
+</style>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('services') }}">Services</a></li>
+                    <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Email: info@aiservices.com</li>
+                    <li>Phone: +123 456 7890</li>
+                </ul>
+            </div>
+            <div class="footer-section social-links">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function filterUseCases(filter) {
+            const allCards = document.querySelectorAll('.usecase-card');
+            const processCards = document.querySelectorAll('.process');
+            const industryCards = document.querySelectorAll('.industry');
+            
+            if (filter === 'process') {
+                processCards.forEach(card => card.style.display = 'block');
+                industryCards.forEach(card => card.style.display = 'none');
+            } else if (filter === 'industry') {
+                processCards.forEach(card => card.style.display = 'none');
+                industryCards.forEach(card => card.style.display = 'block');
+            }
+        }
+    </script>
+</body>
+</html>

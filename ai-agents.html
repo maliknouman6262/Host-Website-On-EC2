@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #001F3F;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #002B46;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+        }
+        .header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #A3FF94;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #A3FF94;
+        }
+        .cta-header {
+            background-color: #68D391;
+            color: #002B46;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero {
+            background-color: #002B46;
+            color: white;
+            text-align: left;
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-content {
+            max-width: 50%;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #A3FF94;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        .cta-button {
+            background-color: #68D391;
+            color: #002B46;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero img {
+            max-width: 45%;
+            border-radius: 10px;
+        }
+        .dive-deeper {
+            background-color: #002B46;
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .dive-deeper h2 {
+            color: white;
+            font-size: 2rem;
+        }
+        .dive-deeper .info {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .dive-deeper a {
+            color: #A3FF94;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .trusted-section {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 40px 10%;
+        }
+        .trusted-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .trusted-logos img {
+            height: 50px;
+        }
+        .deliver-value {
+            background-color: #003A5D;
+            padding: 60px 10%;
+            text-align: center;
+        }
+        .deliver-value h2 {
+            color: #A3FF94;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .value-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .value-box {
+            background-color: #002B46;
+            padding: 20px;
+            width: 45%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .value-box img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+        .value-box h3 {
+            font-size: 1.5rem;
+            color: #A3FF94;
+        }
+        footer {
+            background-color: #002B46;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">AI Agents</div>
+        <nav>
+            <ul class="nav-links">
+                <!-- <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('ai_agents') }}">AI Agents</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li> -->
+            </ul>
+        </nav>
+        <button class="cta-header">Get Started</button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>REAL AI AGENTS</h1>
+            <!-- <h2>REAL AI AGENTS</h2> -->
+            <p>AI Agents are here to drive productivity and automation across your business. Learn from our experts and explore what’s next.</p>
+            <a href="{{ url_for('contact') }}">Schedule Demo</a></li>
+        </div>
+        <img src="/static/images/sevices4.jpg" alt="AI Agent Demo">
+    </section>
+
+    <!-- <section class="dive-deeper">
+        <h2>Dive Deeper</h2>
+        <div class="info">
+            <a href="#">View Press Release</a>
+            <p>Read about our latest AI Agent announcements and innovations.</p>
+        </div>
+        <div class="info">
+            <a href="#">Join our Community</a>
+            <p>Discuss our latest AI Agent innovations in the community.</p>
+        </div>
+        <div class="info">
+            <a href="#">Attend a Put AI to Work Summit</a>
+            <p>Learn more through our AI Summits hosted in a city near you.</p>
+        </div>
+    </section> -->
+
+    <!-- <section class="trusted-section">
+        <h2>Trusted by industry leaders</h2>
+        <div class="trusted-logos">
+            <img src="/static/images/teleperformance.png" alt="Teleperformance">
+            <img src="/static/images/bt.png" alt="BT">
+            <img src="/static/images/coursera.png" alt="Coursera">
+            <img src="/static/images/usi.png" alt="USI">
+            <img src="/static/images/raleigh.png" alt="Raleigh">
+        </div>
+    </section> -->
+<!-- New Section -->
+<section class="deliver-value">
+    <h2>Deliver value with  AI Agents</h2>
+    <div class="value-container">
+        <div class="value-box">
+            <!-- <img src="/static/images/productivity.png" alt="Productivity"> -->
+            <h3>Unlock productivity at scale</h3>
+            <p>AI Agents improve efficiency and scale automation across business processes.</p>
+        </div>
+        <div class="value-box">
+            <!-- <img src="/static/images/control-tower.png" alt="Control Tower"> -->
+            <h3>One platform as your AI control tower</h3>
+            <p>Manage and monitor AI-powered workflows from a single unified platform.</p>
+        </div>
+        <div class="value-box">
+            <!-- <img src="/static/images/chatbots.png" alt="Chatbots"> -->
+            <h3>Go beyond “better chatbots”</h3>
+            <p>AI Agents go beyond traditional chatbots to deliver intelligent decision-making.</p>
+        </div>
+        <div class="value-box">
+            <!-- <img src="/static/images/built-in.png" alt="Built-in AI"> -->
+            <h3>Built-in, not bolted on</h3>
+            <p>AI capabilities are integrated natively for seamless performance.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .service-now-ai {
+        background-color: #002B46;
+        color: white;
+        text-align: center;
+        padding: 50px 10%;
+    }
+    .service-now-ai h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #A3FF94;
+    }
+    .ai-features {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .feature {
+        max-width: 23%;
+        text-align: center;
+    }
+    .feature img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .feature h3 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+    }
+    .feature p {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+</style>
+<!-- Second new Section -->
+<!-- New Section -->
+<!-- <section class="ai-agent-studio">
+    <h2>Introducing AI Agent Studio</h2>
+    <p>AI Agent Studio empowers businesses to design, develop, and deploy intelligent AI agents effortlessly. With intuitive tools and built-in automation, you can create AI-driven workflows that enhance productivity and decision-making.</p>
+</section>
+
+<style>
+    .ai-agent-studio {
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 50px 10%;
+    }
+    .ai-agent-studio h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: black;
+    }
+    .ai-agent-studio p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>
+<!-- Add a line to look different to other section -->
+ <!-- <style> --> 
+    <!-- .ai-agent-studio {
+        border-bottom: 2px solid #68D391;
+    } -->
+    
+ <!-- </style> -->
+
+<!-- Third Section  -->
+<!-- Explore AI Agent Capabilities Section -->
+<!-- <section class="ai-agent-section">
+    <h2>Explore AI Agent Capabilities</h2>
+    <div class="tabs">
+        <button class="tab-button" onclick="showContent('agent-studio')">ServiceNow AI Agent Studio</button>
+        <button class="tab-button" onclick="showContent('data-sources')">Data Sources</button>
+        <button class="tab-button" onclick="showContent('dev-tools')">Development Tools</button>
+    </div>
+    <div class="content-container">
+        <div id="agent-studio" class="tab-content">
+            <p>AI Agent Studio empowers businesses to design, develop, and deploy intelligent AI agents effortlessly.</p>
+            <img src="/static/images/ai_agent_studio.jpg" alt="AI Agent Studio">
+        </div>
+        <div id="data-sources" class="tab-content">
+            <p>Data sources include APIs, databases, and real-time data streams for AI decision-making.</p>
+            <img src="/static/images/data_sources.jpg" alt="Data Sources">
+        </div>
+        <div id="dev-tools" class="tab-content">
+            <p>Development tools include SDKs, AI frameworks, and automation utilities for AI agent creation.</p>
+            <img src="/static/images/dev_tools.jpg" alt="Development Tools">
+        </div>
+    </div>
+    <div class="schedule-demo-container" id="schedule-demo">
+        <button class="schedule-demo-button">Schedule Demo</button>
+    </div>
+</section>
+
+<style>
+    .ai-agent-section {
+        text-align: center;
+        padding: 50px 10%;
+        background-color: rgb(182, 188, 204);
+        color: black;
+    }
+    .tabs {
+        margin-bottom: 20px;
+    }
+    .tab-button {
+        background-color: #68D391;
+        color: #002B46;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+        border-radius: 5px;
+    }
+    .tab-content {
+        display: none;
+        text-align: center;
+    }
+    .tab-content img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    .schedule-demo-container {
+        display: none; /* By default hidden */
+        text-align: center;
+        margin-top: 20px;
+    }
+    .schedule-demo-button {
+        background-color: #091dd5;
+        color: #02131e;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+    }
+    .schedule-demo-button:hover {
+        background-color: #A3FF94;
+    }
+</style> -->
+
+<script>
+    function showContent(id) {
+        let contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+
+        // Jab user kisi bhi tab ko click kare, button show ho
+        document.getElementById('schedule-demo').style.display = 'block';
+    }
+</script>
+
+
+<!-- Fourht Section-->
+<!-- AI Agents for Every Corner of Your Business -->
+<section class="ai-business-section">
+    <h2>AI Agents for Every Corner of Your Business</h2>
+    
+    <p>From IT to Finance, AI is transforming workflows for maximum efficiency.</p>
+    <style>
+        .ai-business-section {
+            border-bottom: 2px solid #68D391;
+        }
+    
+    </style>
+    <!-- add a line to make it different -->
+    <div class="business-tabs">
+        <button class="business-tab-button" onclick="showBusinessContent('it')">IT</button>
+        <button class="business-tab-button" onclick="showBusinessContent('security')">Security & Risk</button>
+        <button class="business-tab-button" onclick="showBusinessContent('hr')">Human Resources</button>
+        <button class="business-tab-button" onclick="showBusinessContent('crm')">CRM</button>
+        <button class="business-tab-button" onclick="showBusinessContent('app-dev')">App Development</button>
+        <button class="business-tab-button" onclick="showBusinessContent('finance')">Finance & Supply Chain</button>
+    </div>
+    
+
+    <div class="business-content-container">
+        <div id="it" class="business-content">
+            <div class="business-wrapper">
+                <div class="business-text">
+                    <h3>IT</h3>
+                    <p>AI-driven IT operations for automation, incident management, and better workflows.</p>
+                </div>
+                <div class="business-image">
+                    <!-- <img src="/static/images/it.jpg" alt="IT"> -->
+                </div>
+            </div>
+        </div>
+        <div id="security" class="business-content">
+            <div class="business-wrapper">
+                <div class="business-text">
+                    <h3>Security & Risk</h3>
+                    <p>Enhance security with AI-powered threat detection and risk management.</p>
+                </div>
+                <div class="business-image">
+                    <!-- <img src="/static/images/security.jpg" alt="Security & Risk"> -->
+                </div>
+            </div>
+        </div>
+        <div id="hr" class="business-content">
+            <div class="business-wrapper">
+                <div class="business-text">
+                    <h3>Human Resources</h3>
+                    <p>Improve HR operations with AI-driven employee management and automation.</p>
+                </div>
+                <div class="business-image">
+                    <!-- <img src="/static/images/hr.jpg" alt="HR"> -->
+                </div>
+            </div>
+        </div>
+        <div id="crm" class="business-content">
+            <div class="business-wrapper">
+                <div class="business-text">
+                    <h3>CRM</h3>
+                    <p>Optimize customer relationships with AI-driven CRM insights.</p>
+                </div>
+                <div class="business-image">
+                    <!-- <img src="/static/images/crm.jpg" alt="CRM"> -->
+                </div>
+            </div>
+        </div>
+        <div id="app-dev" class="business-content">
+            <div class="business-wrapper">
+                <div class="business-text">
+                    <h3>App Development</h3>
+                    <p>Streamline app development with AI-powered automation.</p>
+                </div>
+                <div class="business-image">
+                    <!-- <img src="/static/images/app_dev.jpg" alt="App Development"> -->
+                </div>
+            </div>
+        </div>
+        <div id="finance" class="business-content">
+            <div class="business-wrapper">
+                <div class="business-text">
+                    <h3>Finance & Supply Chain</h3>
+                    <p>AI enhances financial operations, forecasting, and supply chain optimization.</p>
+                </div>
+                <div class="business-image">
+                    <!-- <img src="/static/images/finance.jpg" alt="Finance & Supply Chain"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Demo Button -->
+    <!-- <div class="schedule-demo-container" id="business-schedule-demo"> -->
+        <!-- <button class="schedule-demo-button">Schedule Demo</button> -->
+    </div>
+</section>
+
+<style>
+    .ai-business-section {
+        text-align: center;
+        padding: 50px 10%;
+        background-color: rgb(6, 208, 110);
+        color: black;
+    }
+    .business-tabs {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .business-tab-button {
+        background-color: transparent;
+        color: black;
+        padding: 10px 20px;
+        border: 2px solid white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+    .business-tab-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #A3FF94;
+    }
+    .business-content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .business-content {
+        display: none;
+        width: 80%;
+    }
+    .business-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    .business-text {
+        flex: 1;
+        text-align: left;
+    }
+    .business-image {
+        flex: 1;
+    }
+    .business-image img {
+        width: 70%;
+        border-radius: 20px;
+    }
+    .schedule-demo-container {
+        display: none; /* Hidden by default */
+        text-align: center;
+        margin-top: 10px;
+    }
+    .schedule-demo-button {
+        background: transparent;
+        color: white;
+        padding: 10px 10px;
+        font-size: 1.2rem;
+        height: 55px;
+        width: 160px;
+        border: 2px solid white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: semi-bold;
+        transition: all 0.4s ease-in-out;
+        position: relative;
+        overflow: hidden;
+    }
+    .schedule-demo-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #A3FF94;
+        border-color: #A3FF94;
+    }
+</style>
+
+<script>
+    function showBusinessContent(id) {
+        let contents = document.querySelectorAll('.business-content');
+        contents.forEach(content => content.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+
+        // Show Schedule Demo button when any tab is clicked
+        document.getElementById('business-schedule-demo').style.display = 'block';
+    }
+</script>
+
+<!-- Fith new section -->
+<!-- Built on the ServiceNow Platform Section -->
+<!-- <section class="servicenow-platform">
+    <div class="platform-content">
+        <h2>Built on the ServiceNow Platform</h2>
+        <p>Leverage the power of the ServiceNow platform to create AI-driven workflows that transform your business operations.</p>
+        <ul>
+            <li>Seamless Integration with existing workflows</li>
+            <li>Scalability to meet enterprise demands</li>
+            <li>Security and compliance built-in</li>
+        </ul> -->
+        <!-- <button class="schedule-demo-button">Learn More</button> -->
+        <!-- <a href="{{ url_for('demo') }}" class="schedule-demo-button">Learn More</a> -->
+    </div>
+    <div class="platform-image">
+        <!-- <img src="/static/images/servicenow_platform.jpg" alt="ServiceNow Platform"> -->
+    </div>
+</section>
+
+<style>
+    .servicenow-platform {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 60px 10%;
+        background-color: #001F3F;
+        color: white;
+    }
+    .platform-content {
+        flex: 1;
+        max-width: 60%;
+    }
+    .platform-content h2 {
+        font-size: 2.5rem;
+        color: #A3FF94;
+        margin-bottom: 10px;
+    }
+    .platform-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+    .platform-content ul {
+        list-style: none;
+        padding: 0;
+    }
+    .platform-content li {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 20px;
+    }
+    .platform-content li::before {
+        content: '\2714';
+        position: absolute;
+        left: 0;
+        color: #A3FF94;
+        font-size: 1.3rem;
+    }
+    .schedule-demo-button {
+        background: transparent;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.4s ease-in-out;
+        margin-top: 10px;
+    }
+    .learn-more-button {
+    margin-top: 40px;  /* Increase margin to move button downward */
+    display: block; /* Ensures it takes full width */
+    text-align: left; /* Center aligns the button */
+}
+
+    .schedule-demo-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #A3FF94;
+        border-color: #A3FF94;
+    }
+    .platform-image {
+        flex: 1;
+        text-align: right;
+    }
+    .platform-image img {
+        max-width: 90%;
+        border-radius: 10px;
+    }
+</style>
+
+<!-- Fifth section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #cce5ff;
+            box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
+            width: 320px;
+            height: 50px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease-in-out;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            background-color: #e3f2fd;
+        }
+        .card img {
+            width: 40px;
+        }
+        .card .icon-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-weight: bold;
+            padding: 10px;
+        }
+        .card span {
+            font-size: 20px;
+        }
+        .card.active {
+            border-color: #0056b3;
+            background-color: #d0e2ff;
+        }
+        .content {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
+            width: 100%;
+            text-align: left;
+            border-left: 5px solid #0056b3;
+            color: black;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+        }
+        .content.active {
+            display: block;
+        }
+        .card-wrapper {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="section-title">How AI Agents Work</h2>
+
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card" onclick="toggleContent('role', this)">
+                <div class="icon-text">
+                    <img src="https://img.icons8.com/ios/50/user--v1.png" alt="Role">
+                    <p>Role</p>
+                    <span class="toggle-icon">+</span>
+                </div>
+            </div>
+            <div id="role" class="content">
+                <p><strong>AI Agent Role:</strong> Defines purpose and user interaction.</p>
+            </div>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="card" onclick="toggleContent('data', this)">
+                <div class="icon-text">
+                    <img src="https://img.icons8.com/ios/50/data-configuration.png" alt="Data">
+                    <p>Data</p>
+                    <span class="toggle-icon">+</span>
+                </div>
+            </div>
+            <div id="data" class="content">
+                <p><strong>AI & Data:</strong> Uses structured/unstructured data for decision-making.</p>
+            </div>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="card" onclick="toggleContent('tools', this)">
+                <div class="icon-text">
+                    <img src="https://img.icons8.com/ios/50/maintenance.png" alt="Tools">
+                    <p>Tools</p>
+                    <span class="toggle-icon">+</span>
+                </div>
+            </div>
+            <div id="tools" class="content">
+                <p><strong>AI Tools:</strong> Integrates automation, NLP, and analytics.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card" onclick="toggleContent('orchestrator', this)">
+                <div class="icon-text">
+                    <img src="https://img.icons8.com/ios/50/artificial-intelligence.png" alt="AI Orchestrator">
+                    <p>AI Agent Orchestrator</p>
+                    <span class="toggle-icon">+</span>
+                </div>
+            </div>
+            <div id="orchestrator" class="content">
+                <p><strong>AI Orchestrator:</strong> Manages AI interactions across services.</p>
+            </div>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="card" onclick="toggleContent('channels', this)">
+                <div class="icon-text">
+                    <img src="https://img.icons8.com/ios/50/network.png" alt="Channels">
+                    <p>Channels</p>
+                    <span class="toggle-icon">+</span>
+                </div>
+            </div>
+            <div id="channels" class="content">
+                <p><strong>AI Channels:</strong> Chatbots, voice assistants, and emails.</p>
+            </div>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="card" onclick="toggleContent('trust', this)">
+                <div class="icon-text">
+                    <img src="https://img.icons8.com/ios/50/security-configuration.png" alt="Trust and Security">
+                    <p>Trust and Security</p>
+                    <span class="toggle-icon">+</span>
+                </div>
+            </div>
+            <div id="trust" class="content">
+                <p><strong>AI Security:</strong> Ensures data privacy and compliance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id, element) {
+            const content = document.getElementById(id);
+            const icon = element.querySelector('.toggle-icon');
+
+            // Hide all other contents
+            document.querySelectorAll(".content").forEach(el => {
+                if (el.id !== id) el.classList.remove("active");
+            });
+
+            // Reset all other icons
+            document.querySelectorAll(".card").forEach(el => {
+                if (el !== element) el.classList.remove("active");
+                el.querySelector(".toggle-icon").innerText = "+";
+            });
+
+            // Toggle the clicked one
+            if (content.classList.contains("active")) {
+                content.classList.remove("active");
+                element.classList.remove("active");
+                icon.innerText = "+";
+            } else {
+                content.classList.add("active");
+                element.classList.add("active");
+                icon.innerText = "−";
+            }
+        }
+    </script>
+
+</body>
+</html>
+ 
+<!--Frequently asked questions-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .faq-container {
+            width: 95%;
+            /* max-width: 1200px; */
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            font-size: 16px;
+            color: black;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .faq-item.active {
+            border: 2px solid #28a745;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 15px;
+        }
+
+        .icon {
+            font-size: 22px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .faq-item.active .icon {
+            transform: rotate(180deg);
+        }
+
+        .expand-all {
+            text-align: right;
+            margin-bottom: 10px;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="expand-all" onclick="toggleAll()">Expand All</div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is generative AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Generative AI is a type of artificial intelligence that creates new content such as text, images, audio, and video. It learns from large datasets and generates human-like outputs based on prompts.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is AI search?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI search enhances traditional search engines by using AI techniques such as natural language processing and machine learning to provide more accurate and relevant search results.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is conversational AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Conversational AI enables human-like interactions between users and machines through natural language processing, allowing AI to understand and respond intelligently in conversations.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What are some benefits of AI agents?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI agents offer benefits such as:
+                <ul>
+                    <li>Automating repetitive tasks</li>
+                    <li>Enhancing customer service</li>
+                    <li>Providing faster and more accurate decision-making</li>
+                    <li>Improving operational efficiency</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What’s the difference between an AI agent and a chatbot?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                While both AI agents and chatbots interact with users, AI agents are more advanced. They can perform complex tasks, learn over time, and integrate with enterprise systems, whereas chatbots mainly handle predefined conversational flows.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is an AI agent builder?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                An AI agent builder is a tool or platform that allows developers to create and customize AI agents by training them with data, defining workflows, and integrating them with business applications.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How are AI agents built?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI agents are built using machine learning models, rule-based systems, and APIs. The process involves training the AI on relevant data, defining rules, and deploying it for real-time decision-making.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>How do AI agents work?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI agents process data, analyze inputs, and take actions based on predefined rules or learned patterns. They can interact with users, automate processes, and continuously improve through machine learning.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let parent = element.parentElement;
+            parent.classList.toggle("active");
+
+            let icon = element.querySelector(".icon");
+            icon.textContent = parent.classList.contains("active") ? "−" : "+";
+        }
+
+        function toggleAll() {
+            let allItems = document.querySelectorAll(".faq-item");
+            let expandAllBtn = document.querySelector(".expand-all");
+
+            let isExpanded = [...allItems].some(item => !item.classList.contains("active"));
+
+            allItems.forEach(item => {
+                if (isExpanded) {
+                    item.classList.add("active");
+                    item.querySelector(".icon").textContent = "−";
+                } else {
+                    item.classList.remove("active");
+                    item.querySelector(".icon").textContent = "+";
+                }
+            });
+
+            expandAllBtn.textContent = isExpanded ? "Collapse All" : "Expand All";
+        }
+    </script>
+
+</body>
+</html>
+
+<!--  -->
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact Info</h4>
+            <ul>
+                <li>Email: info@aiservices.com</li>
+                <li>Phone: +123 456 7890</li>
+            </ul>
+        </div>
+        <div class="footer-section social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 AI Services. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function filterUseCases(filter) {
+        const allCards = document.querySelectorAll('.usecase-card');
+        const processCards = document.querySelectorAll('.process');
+        const industryCards = document.querySelectorAll('.industry');
+        
+        if (filter === 'process') {
+            processCards.forEach(card => card.style.display = 'block');
+            industryCards.forEach(card => card.style.display = 'none');
+        } else if (filter === 'industry') {
+            processCards.forEach(card => card.style.display = 'none');
+            industryCards.forEach(card => card.style.display = 'block');
+        }
+    }
+</script>
+</body>
+</html>
+
+ <style>
+      .footer {
+            background: linear-gradient(to right, #003366, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+        .footer-section h4 {
+            color: #ffcc00;
+            margin-bottom: 15px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 8px 0;
+        }
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #ffcc00;
+        }
+        .social-links a {
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+        .footer-bottom {
+            border-top: 1px solid #ffffff33;
+            padding-top: 10px;
+            font-size: 14px;
+        }

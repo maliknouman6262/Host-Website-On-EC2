@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <!-- Header (Navbar) -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">MyWebsite</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/products" class="active">Products</a>
+                <a href="/ai-services">AI Services</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Discover Our Premium Software Solutions</h1>
+            <p>Enhance your business operations with our cutting-edge tools.</p>
+        </div>
+    </section>
+
+    <!-- Software Products Section -->
+    <section class="software-products-section">
+        <div class="section-heading">
+            <h2>Our Products</h2>
+        </div>
+
+        <!-- Product Filters -->
+        <div class="product-filters">
+            <button class="filter-btn" id="all">All Products</button>
+            <button class="filter-btn" id="category1">Category 1</button>
+            <button class="filter-btn" id="category2">Category 2</button>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="software-products-container">
+            <!-- Example Product Card -->
+            <div class="software-card" data-category="category1">
+                <img src="{{ url_for('static', filename='images/product1.jpg') }}" alt="Product 1">
+                <h4>Product 1</h4>
+                <p>A brief description of Product 1</p>
+                <button class="view-details-btn" onclick="openModal('product1')">View Details</button>
+            </div>
+            <!-- Add more products dynamically -->
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div id="product1-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('product1')">&times;</span>
+            <h3>Product 1 Details</h3>
+            <p>Detailed information about Product 1.</p>
+            <button class="download-button">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/ai-services">AI Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: support@mywebsite.com</li>
+                    <li>Phone: +123 456 789</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

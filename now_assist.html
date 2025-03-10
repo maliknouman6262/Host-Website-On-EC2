@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Assist</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #000;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Header */
+        .header {
+            background-color: #0057b3;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #a1c4fd;
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('/static/images/now_assist_bg.jpg') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+        }
+
+        /* Full-Width GenAI Section */
+        .genai-section {
+            width: 100%;
+            padding: 100px 20px;
+            background-color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .genai-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .genai-section p {
+            font-size: 1.3rem;
+            color: #333;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .genai-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0057b3;
+            border: 2px solid #0057b3;
+            background: white;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .genai-button:hover {
+            background: #0057b3;
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            width: 100%;
+            padding: 80px 10%;
+            background-color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .feature {
+            width: 30%; /* Adjust width to fit 3 items per row */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .feature i {
+            font-size: 40px;
+            color: #0057b3;
+        }
+
+        .feature h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #333;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        /* Ensure two rows of features without scroll */
+        @media (max-width: 768px) {
+            .feature {
+                width: 45%; /* Adjust width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature {
+                width: 100%; /* Stack features on top of each other for very small screens */
+            }
+        }
+/* New Section - AI for Everyone */
+.ai-for-everyone {
+            background-color: #e6f7ff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .ai-for-everyone h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0057b3;
+        }
+
+        .ai-for-everyone p {
+            font-size: 1.2rem;
+            color: black;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+         /* Video Carousel Section */
+         .video-carousel {
+            display: flex;
+            overflow-x: scroll;
+            gap: 30px;
+            padding: 30px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .video-cart {
+            width: 20%;
+            height: 390px;
+            background: rgb(74, 121, 144);
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(240, 242, 244, 0.1);
+            scroll-snap-align: start;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-cart img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .video-cart h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Hover Content */
+        .hover-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 87, 179, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-cart:hover .hover-content {
+            display: block;
+            opacity: 1;
+        }
+
+        .hover-content h4 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hover-content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons in Hover Content */
+        .hover-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .hover-buttons a {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #0057b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hover-buttons a:hover {
+            background-color: #0042a3;
+        }
+
+        /* Always visible buttons below heading */
+        .always-visible-buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .always-visible-buttons a {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #0057b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .always-visible-buttons a:hover {
+            background-color: #0042a3;
+        }
+        /* Floating Contact & Demo Buttons */
+        .floating-buttons {
+            position: fixed;
+            border-color: rgb(24, 98, 163);
+            border: #fff;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+    z-index: 1000;
+        }
+
+        .floating-buttons a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-color: #fff;
+            font-weight: bold;
+            color: black;
+            background: #4caf50;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .floating-buttons a:hover {
+            background: #3d8b40;
+            
+            color: white;
+        }
+
+        .floating-buttons img {
+            width: 20px;
+            height: 20px;
+        }
+/* Get Now Assist for your industry Section */
+.industry-section {
+            background-color: #f1f4f8;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .industry-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0057b3;
+        }
+
+        .industry-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Cards */
+        .industry-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .industry-card {
+            background-color: rgb(175, 201, 215);
+            width: 20%;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 300px;
+        }
+
+        .industry-card:hover {
+            transform: scale(1.05);
+        }
+
+        .industry-card img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .industry-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .industry-card .button {
+            background-color: #0057b3;
+            color: white;
+            padding: 10px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .industry-card .button:hover {
+            background-color: #a1c4fd;
+        }
+        /* * A database for the AI era Section  */
+        .raptordb-section {
+            background-color: rgb(221, 235, 252);
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 20px;
+            align-items: center;
+            box-sizing: border-box;
+            margin: 50px 0;
+        }
+
+        .raptordb-text {
+            width: 50%;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .raptordb-text h2 {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0057b3;
+        }
+
+        .raptordb-button {
+            background-color: #0057b3;
+            color: white;
+            padding: 12px 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .raptordb-button:hover {
+            background-color: #a1c4fd;
+        }
+
+        .raptordb-image {
+            width: 40%;
+            text-align: right;
+        }
+
+        .raptordb-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+        }
+        /* Footer */
+        .footer {
+            background-color: #0057b3;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div>AI Services</div>
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/testimonials">Testimonials</a>
+            <a href="/contact">Contact</a>
+            <a href="/about">About</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to Now Assist</h1>
+        <p>AI-powered assistance to streamline your workflows and enhance productivity.</p>
+    </div>
+
+    <!-- Full-Width GenAI Section -->
+    <div class="genai-section">
+        <h2>What can Now Assist with GenAI do for you?</h2>
+        <p>
+            Built on the Now Platform®, Now Assist combines generative AI capabilities with our powerful workflow automation platform.
+            Now Assist lets you use domain-specific models to improve your organization's productivity and efficiency, deliver better self-service,
+            recommend actions and provide answers, and make searches more effective.
+        </p>
+        <a href="#" class="genai-button">Read Ebook</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="feature">
+            <i class="fas fa-file-alt"></i> <!-- Icon for Summarization -->
+            <h3>Summarization</h3>
+            <p>Generate summaries for cases, chats, incidents, and more.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-comments"></i> <!-- Icon for Conversational AI -->
+            <h3>Conversational exchanges</h3>
+            <p>Apply GenAI skills in chatbots and virtual agents.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-edit"></i> <!-- Icon for Content Creation -->
+            <h3>Content creation</h3>
+            <p>Help HR and IT teams create and edit content efficiently.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-code"></i> <!-- Icon for Code Flow -->
+            <h3>Code and flow generation</h3>
+            <p>Use AI to generate and build flows and code efficiently.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-cogs"></i> <!-- Icon for Custom Skills -->
+            <h3>Custom skills development</h3>
+            <p>Create and deploy AI skills unique to your business.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-search"></i> <!-- Icon for AI Search -->
+            <h3>AI search</h3>
+            <p>Improve searches with AI-generated summaries.</p>
+        </div>
+        <!-- Ads Feature -->
+        <div class="feature">
+            <i class="fas fa-bullhorn"></i> <!-- Icon for Ads Management -->
+            <h3>Ads Management</h3>
+            <p>Manage and optimize your ad campaigns effectively with AI.</p>
+        </div>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="/contact"alt="Contact"> Contact</a>
+        <a href="/demo"alt="Demo"> Demo</a>
+    </div>
+<!-- New Section - Put AI to Work for Everyone -->
+<div class="ai-for-everyone">
+    <h2>Put AI to Work for All Your People</h2>
+    <p>
+        Empower your teams with AI to drive productivity and innovation across your organization. 
+        With Now Assist, bring AI capabilities to everyone, so your employees can work smarter, automate tasks, and make data-driven decisions faster.
+    </p>
+</div>
+<!-- Video Carousel -->
+<!-- Video Carousel -->
+<div class="video-carousel">
+    <!-- HR Teams Cart -->
+    <div class="video-cart">
+        <h3>HR TEAMS</h3>
+        <img src="/static/images/hr_teams_image.jpg" alt="HR Teams">
+        
+        <div class="hover-content">
+            <h4>Now Assist for HR Management</h4>
+            <p>AI-driven tools to help HR teams streamline hiring, employee management, and talent acquisition.</p>
+            <div class="hover-buttons">
+                <a href="#">Watch Demo</a>
+                <a href="#">Get the Guide</a>
+            </div>
+        </div>
+        <!-- Always visible buttons -->
+        <div class="always-visible-buttons">
+            <!-- <a href="#">Watch Demo</a> -->
+            <!-- <a href="#">Get the Guide</a> -->
+        </div>
+    </div>
+
+    <!-- Customer Service Teams Cart -->
+    <div class="video-cart">
+        <h3>CUSTOMER SERVICE TEAMS</h3>
+        <img src="/static/images/customer_service_image.jpg" alt="Customer Service Teams">
+        
+        <div class="hover-content">
+            <h4>Now Assist for Customer Service Management</h4>
+            <p>AI to enhance customer experience by improving response times, issue resolution, and satisfaction.</p>
+            <div class="hover-buttons">
+                <a href="#">Watch Demo</a>
+                <a href="#">Get the Guide</a>
+            </div>
+        </div>
+        <!-- Always visible buttons -->
+        <div class="always-visible-buttons">
+            <!-- <a href="#">Watch Demo</a> -->
+            <!-- <a href="#">Get the Guide</a> -->
+        </div>
+    </div>
+
+    <!-- IT Teams Cart -->
+    <div class="video-cart">
+        <h3>IT TEAMS</h3>
+        <img src="/static/images/it_teams_image.jpg" alt="IT Teams">
+        
+        <div class="hover-content">
+            <h4>Now Assist for IT Service Management</h4>
+            <p>Empowering IT teams to provide seamless support, optimize operations, and ensure security with AI.</p>
+            <div class="hover-buttons">
+                <a href="#">Watch Demo</a>
+                <a href="#">Get the Guide</a>
+            </div>
+        </div>
+        <!-- Always visible buttons -->
+        <div class="always-visible-buttons">
+            <!-- <a href="#">Watch Demo</a> -->
+            <!-- <a href="#">Get the Guide</a> -->
+        </div>
+    </div>
+
+    <!-- Developers Cart -->
+    <div class="video-cart">
+        <h3>DEVELOPERS</h3>
+        <img src="/static/images/developers_image.jpg" alt="Developers">
+        
+        <div class="hover-content">
+            <h4>Now Assist for Development Teams</h4>
+            <p>AI-driven solutions to speed up development, streamline debugging, and automate testing for developers.</p>
+            <div class="hover-buttons">
+                <a href="#">Watch Demo</a>
+                <a href="#">Get the Guide</a>
+            </div>
+        </div>
+        <!-- Always visible buttons -->
+        <div class="always-visible-buttons">
+            <!-- <a href="#">Watch Demo</a> -->
+            <!-- <a href="#">Get the Guide</a> -->
+        </div>
+    </div>
+</div>
+</div>
+<!-- Get Now Assist for your industry Section -->
+<div class="industry-section">
+    <h2>Get Now Assist for your Industry</h2>
+    <p>We’ve expanded Now Assist into industry products for telecom, media, and technology, financial services, the public sector, and more.</p>
+    
+    <!-- Cards -->
+    <div class="industry-cards">
+        <!-- Financial Services -->
+        <div class="industry-card">
+            <!-- Icon for Financial Services -->
+            <img src="https://img.icons8.com/ios/452/money.png" alt="Financial Services">
+            <h3>Financial Services</h3>
+            <p>Transform financial operations and provide smarter services through AI.</p>
+            <a href="#" class="button">Explore More</a>
+        </div>
+
+        <!-- Public Sector -->
+        <div class="industry-card">
+            <!-- Icon for Public Sector -->
+            <img src="static/images/public_sector_image.jpg" alt="Public Sector">
+            <h3>Public Sector</h3>
+            <p>Empower government organizations with AI-driven solutions for improved services.</p>
+            <a href="#" class="button">Explore More</a>
+        </div>
+
+        <!-- Telecommunications -->
+        <div class="industry-card">
+            <!-- Icon for Telecommunications -->
+            <img src="https://img.icons8.com/ios/452/smartphone.png" alt="Telecommunications">
+            <h3>Telecommunications</h3>
+            <p>Boost telecom operations with AI technologies for better customer experiences.</p>
+            <a href="#" class="button">Explore More</a>
+        </div>
+        <!-- Technology Providers -->
+        <div class="industry-card">
+            <!-- Icon for Technology Providers -->
+            <img src="https://img.icons8.com/ios/452/laptop.png" alt="Technology Providers">
+            <h3>Technology Providers</h3>
+            <p>Enhance service offerings with AI-powered tools for technology firms.</p>
+            <a href="#" class="button">Explore More</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+ <!-- A database for the AI era Section -->
+ <div class="raptordb-section">
+    <div class="raptordb-text">
+        <h2>A database for the AI era</h2>
+        <p>With RaptorDB, our high-performance database, you can unify data and analytics on the Now Platform® for ultra-fast workflow performance at scale. RaptorDB is optimized for speed, enabling businesses to get real-time insights and make informed decisions at lightning-fast speeds, improving overall workflow efficiency.</p>
+        <a href="#" class="raptordb-button">Learn about RaptorDB</a>
+    </div>
+    <div class="raptordb-image">
+        <img src="https://img.icons8.com/ios/452/database.png" alt="RaptorDB Image">
+    </div>
+</div>
+
+</body>
+</html>
+
+<!-- Frequently Asked Questions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            height: 100%;
+        }
+
+        .faq-container {
+            width: 100%;
+            height: 100vh;
+            max-width: 100%;
+            margin: 0;
+            padding: 30px;
+            background: white;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            font-size: 16px;
+            color: black;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .faq-item.active {
+            border: 2px solid #28a745;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 15px;
+        }
+
+        .icon {
+            font-size: 22px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .faq-item.active .icon {
+            transform: rotate(180deg);
+        }
+
+        .expand-all {
+            text-align: right;
+            margin-bottom: 10px;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="expand-all" onclick="toggleAll()">Expand All</div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is generative AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Generative AI is a type of artificial intelligence that uses large datasets to generate new content such as text, images, music, and videos. Unlike traditional AI that can only recognize patterns, generative AI can create new, original data based on input prompts.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What's the difference between AI and generative AI?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI (Artificial Intelligence) is a broad field focused on creating machines that can perform tasks that usually require human intelligence, such as problem-solving or learning from experience. Generative AI, on the other hand, specifically focuses on creating new content (text, images, etc.) using algorithms and models.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Does Now Assist support FedRamp and GCC customers?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Yes, Now Assist is fully compliant with FedRAMP (Federal Risk and Authorization Management Program) and GCC (Government Community Cloud) standards, ensuring that it meets the necessary security requirements for federal and government customers.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What languages are supported by Now Assist?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Now Assist supports multiple languages including English, Spanish, French, German, Italian, and several others. The platform is designed to be scalable to integrate with multiple regional languages for global customer support.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What AI models does ServiceNow use and support?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                ServiceNow uses various AI models including natural language processing (NLP), machine learning, and deep learning models. These models are employed to enhance user experiences, streamline workflows, and improve decision-making across various business processes.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is machine learning?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                Machine learning is a subset of AI that focuses on algorithms and statistical models that allow computers to improve their performance on a specific task over time through data-driven insights. It enables systems to learn from past data and make predictions without explicit programming.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is an LLM?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                An LLM (Large Language Model) is a type of deep learning model that processes and generates human language text. LLMs like GPT-3 are trained on vast amounts of text data and are capable of performing a wide range of natural language processing tasks such as text generation, translation, and summarization.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What is an AI chatbot?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                An AI chatbot is a program that uses artificial intelligence to simulate conversation with users. It can answer questions, provide customer support, and perform tasks using natural language processing to understand user input and generate responses.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What are AI agents?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                AI agents are intelligent programs that can perform specific tasks, automate processes, and interact with users. They can analyze data, make decisions, and adapt over time to improve their performance.
+            </div>
+        </div>
+
+        <div class="faq-item active">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What's the difference between a Now Assist-powered AI chatbot and ServiceNow AI Agents?</span>
+                <span class="icon">−</span>
+            </div>
+            <div class="faq-answer">
+                A Now Assist-powered AI chatbot is designed to handle simple, rule-based tasks such as answering FAQs or providing support in a conversational format. ServiceNow AI Agents, on the other hand, are more advanced and can perform complex workflows, automate business processes, and integrate with enterprise systems for real-time decision-making and operational efficiency.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let parent = element.parentElement;
+            parent.classList.toggle("active");
+
+            let icon = element.querySelector(".icon");
+            icon.textContent = parent.classList.contains("active") ? "−" : "+";
+        }
+
+        function toggleAll() {
+            let allItems = document.querySelectorAll(".faq-item");
+            let expandAllBtn = document.querySelector(".expand-all");
+
+            let isExpanded = [...allItems].some(item => !item.classList.contains("active"));
+
+            allItems.forEach(item => {
+                if (isExpanded) {
+                    item.classList.add("active");
+                    item.querySelector(".icon").textContent = "−";
+                } else {
+                    item.classList.remove("active");
+                    item.querySelector(".icon").textContent = "+";
+                }
+            });
+
+            expandAllBtn.textContent = isExpanded ? "Collapse All" : "Expand All";
+        }
+    </script>
+
+</body>
+</html>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Now Assist. All rights reserved.
+    </div>
+
+</body>
+</html>

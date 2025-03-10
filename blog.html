@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - AI Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            color: #004080;
+        }
+        .navbar {
+            background-color: #0056b3;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .hero {
+            background: url('/static/images/hero-banner.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .blog-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .footer {
+            background: linear-gradient(to right, #003366, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+        .footer-section h4 {
+            color: #ffcc00;
+            margin-bottom: 15px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 8px 0;
+        }
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: #ffcc00;
+        }
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+        .footer-bottom {
+            border-top: 1px solid #ffffff33;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">AI Services</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Our Blog</h1>
+            <p>Insights, tips, and updates on AI, automation, and more.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="container my-5">
+        <h2>Latest Posts</h2>
+        
+        <!-- Blog Post 1 -->
+        <div class="blog-card">
+            <img src="/static/images/blog1.jpg" alt="Blog Image">
+            <h3 class="mt-3">How AI is Transforming Industries</h3>
+            <p>Explore the revolutionary impact of AI across various industries, from healthcare to finance. Learn how AI is reshaping the way businesses operate and innovate.</p>
+            <a href="/blog/how-ai-is-transforming-industries" class="btn btn-primary">Read More</a>
+        </div>
+        
+        <!-- Blog Post 2 -->
+        <div class="blog-card">
+            <img src="/static/images/blog2.jpg" alt="Blog Image">
+            <h3 class="mt-3">The Future of Machine Learning</h3>
+            <p>Machine learning is the backbone of artificial intelligence. Discover how machine learning will evolve and the trends you need to watch for in the coming years.</p>
+            <a href="/blog/future-of-machine-learning" class="btn btn-primary">Read More</a>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-card">
+            <img src="/static/images/blog3.jpg" alt="Blog Image">
+            <h3 class="mt-3">AI and Automation: The Perfect Pairing</h3>
+            <p>AI and automation go hand-in-hand in boosting business productivity. Learn how integrating AI with automation can enhance operational efficiency.</p>
+            <a href="/blog/ai-and-automation" class="btn btn-primary">Read More</a>
+        </div>
+        
+        <!-- Add more blog cards as needed -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>AI Services is dedicated to transforming businesses with AI-driven solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/testimonials">Testimonials</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-bottom">&copy; 2025 AI Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f8ff; /* Light Blue Background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar and Header */
+.navbar {
+    background-color: #003366; /* Dark Blue */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.8em;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+.nav-links .active {
+    color: #ffcc00;
+}
+
+/* Hero Section */
+.hero {
+    background: url("../static/images/hero-banner.jpg") center/cover no-repeat;
+    text-align: center;
+    color: white;
+    padding: 120px 20px;
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 100, 0.5);
+    padding: 40px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.4em;
+}
+/* Button */
+/* Software Products Section */
+.software-products-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.section-heading h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 40px;
+}
+
+/* Product Filters */
+.product-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: #0056b3; /* Blue Color */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.filter-btn:hover {
+    background-color: #003366; /* Darker Blue */
+}
+
+/* Product Card */
+.software-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    width: 320px;
+    margin-right: 20px;
+    border: 1px solid #e1e1e1;
+    max-height: 500px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.software-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.software-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+.software-card h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #003366;
+    margin-top: 15px;
+}
+
+.software-card p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.software-card .view-details-btn {
+    background-color: #ffcc00;
+    color: #003366;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.software-card .view-details-btn:hover {
+    background-color: #003366;
+    color: white;
+}
+
+/* Product Detail Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+}
+
+.modal h3 {
+    font-size: 2em;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.modal .download-button {
+    background-color: #003366;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.modal .download-button:hover {
+    background-color: #ffcc00;
+}
+/* Video Section */
+
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(to right, #003366, #0056b3);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    font-size: 1.1rem;
+    margin: 8px 0;
+}
+
+.footer-bottom {
+    background-color: #002244;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
