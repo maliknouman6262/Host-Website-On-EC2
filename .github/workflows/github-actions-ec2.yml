@@ -1,5 +1,6 @@
-name: Deploy-to-EC2
+name: Push-to-EC2
 
+# Trigger deployment only on push to main branch
 on:
   push:
     branches:
@@ -7,37 +8,31 @@ on:
 
 jobs:
   deploy:
+    name: Deploy to EC2 on master branch push
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout the files
         uses: actions/checkout@v2
 
-      # Setup SSH Key
-      - name: Setup SSH Key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.HOST_DNS }} >> ~/.ssh/known_hosts
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
 
-      # Deploy files using Rsync
-      - name: Deploy to EC2
-        run: |
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" . ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }}:${{ secrets.TARGET_DIR }}
-
-      # Run Commands on EC2 (Install Apache & Move Files)
-      - name: Execute Remote Commands
-        run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} << 'EOF'
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
             sudo apt-get -y update
             sudo apt-get install -y apache2
             sudo systemctl start apache2
             sudo systemctl enable apache2
-            sudo mv ~/$(basename ${{ secrets.TARGET_DIR }})/* /var/www/html/
-          EOF
-
-      # Restart Apache to Apply Changes
-      - name: Restart Apache
-        run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} "sudo systemctl restart apache2"
+            cd home
+            sudo mv * /var/www/html
